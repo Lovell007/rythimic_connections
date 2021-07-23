@@ -29,7 +29,8 @@ https://whimsical.com/3y5hbv1cFwn1d61sPfrKmX
 #Time Frames
 
 | Task          | Priority | Estimated Time | Time Invested | Actual Time |
-| ------------- | :------: | :------------: | :-----------: | :---------: || Models / Schemas | H | 3 hrs | | |
+| :-------------: | :------: | :------------: | :-----------: | :---------:|
+| Models / Schemas | H | 3 hrs | | |
 | Routes | H | 3.5 hrs | | |
 | Controllers | H | 2.5 hrs | | |
 | User Auth | H | 3 hrs | | |
