@@ -10,10 +10,11 @@ import { getAllSongs } from '../services/songs';
 // import PlaylistEdit from '../screens/PlaylistEdit';
 // import PlaylistDetail from '../screens/PlaylistDetail';
 
-export default function MainContainer() {
-	const [allplaylists, setallPlaylists] = useState([]);
+export default function MainContainer(props) {
+	const [allPlaylists, setallPlaylists] = useState([]);
 	const [SongList, setSongList] = useState([]);
-	const history = useHistory();
+  const history = useHistory();
+  const {currentUser} = props
 
 	useEffect(() => {
 		const fetchPlaylists = async () => {
@@ -48,29 +49,32 @@ export default function MainContainer() {
 // 		await deletePlaylist(id);
 // 		setallPlaylists((prevState) => prevState.filter((playlist) => playlist.id !== id));
 // 	};
+  
+  const userPlaylists = allPlaylists?.filter((playlist) => {
+    return playlist.user_id === currentUser.id
+  })
 
   return (
-    <switch>
+    <Switch>
       <Route path='/home'>
-        <Home />
+        <Home currentUser={currentUser} userPlaylists={userPlaylists}/>
       </Route>
-    </switch>
-		// <Switch>
-// 			<Route path='/Songs'>
+{/* // 			<Route path='/Songs'>
 // 				<Songs SongList={SongList} />
-// 			</Route>
-// 			<Route path='/playlists/:id/edit'>
+// 			</Route> */}
+{/* // 			<Route path='/playlists/:id/edit'>
 // 				<PlaylistEdit allPlaylists={allPlaylists} handleUpdate={handleUpdate} />
-// 			</Route>
-// 			<Route path='/playlists/new'>
+// 			</Route> */}
+{/* // 			<Route path='/playlists/new'>
 // 				<PlaylistCreate handleCreate={handleCreate} />
-// 			</Route>
-// 			<Route path='/playlists/:id'>
-// 				<PlaylistDetail SongList={SongList} />
-// 			</Route>
-// 			<Route path='/playlists'>
+// 			</Route> */}
+			<Route path='/playlists/:id'>
+        {/* <PlaylistDetail SongList={SongList} /> */}
+        <h3>Details, baby!</h3>
+			</Route>
+{/* // 			<Route path='/playlists'>
 // 				<Playlists allPlaylists={allPlaylists} handleDelete={handleDelete} />
-// 			</Route>
-// 		</Switch>
+// 			</Route> */}
+		</Switch>
 	);
 }

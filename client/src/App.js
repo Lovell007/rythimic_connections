@@ -52,7 +52,7 @@ function App() {
 						<Register handleRegister={handleRegister} />
 					</Route>
 					<Route path='/home'>
-						<MainContainer />
+            <MainContainer currentUser={currentUser}/>
 					</Route>
 				</Switch>
 			</Layout>
