@@ -4,7 +4,7 @@ import './App.css';
 import MainContainer from './containers/MainContainer';
 import Layout from './layouts/Layout';
 import Register from './screens/Register';
-import { getAllPlaylists } from './services/playlists';
+import { getAllPlaylists, deletePlaylist } from './services/playlists';
 import { loginUser, registerUser, removeToken, verifyUser } from './services/auth';
 
 function App() {
@@ -24,30 +24,35 @@ function App() {
     fetchPlaylists();
     handleVerify();
   }, []);
-
-  const userPlaylists = allPlaylists?.filter(playlist => {
-    return playlist.userid === currentUser?.user_id;
-  });
-
+  
+  const handleDelete = async (id) => {
+    await deletePlaylist(id);
+    setallPlaylists((prevState) => prevState.filter((playlist) => playlist.id !== id));
+  };
+  
   const handleLogin = async formData => {
     const userData = await loginUser(formData);
     setCurrentUser(userData);
     history.push('/home');
   };
-
+  
   const handleRegister = async formData => {
     const userData = await registerUser(formData);
     setCurrentUser(userData);
     history.push('/home');
   };
-
+  
   const handleLogout = () => {
     setCurrentUser(null);
     localStorage.removeItem('authToken');
     removeToken();
     history.push('/home');
   };
-
+  
+    const userPlaylists = allPlaylists?.filter(playlist => {
+      return playlist.userid === currentUser?.user_id;
+    });
+  
   return (
     <div className="App">
       <Layout userPlaylists={userPlaylists}
@@ -59,7 +64,8 @@ function App() {
             <Register handleRegister={handleRegister} />
           </Route>
           <Route path="/">
-            <MainContainer userPlaylists={userPlaylists} currentUser={currentUser} />
+            <MainContainer userPlaylists={userPlaylists} currentUser={currentUser}
+              handleDelete={handleDelete}/>
           </Route>
         </Switch>
       </Layout>

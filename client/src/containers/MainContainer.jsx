@@ -13,7 +13,7 @@ import { getAllSongs } from '../services/songs';
 export default function MainContainer(props) {
   const [SongList, setSongList] = useState([]);
   const history = useHistory();
-  const { currentUser, userPlaylists } = props;
+  const { currentUser, userPlaylists, handleDelete } = props;
 
   useEffect(() => {
     const fetchSongs = async () => {
@@ -39,10 +39,6 @@ export default function MainContainer(props) {
   // 		history.push('/playlists');
   // 	};
 
-  // 	const handleDelete = async (id) => {
-  // 		await deletePlaylist(id);
-  // 		setallPlaylists((prevState) => prevState.filter((playlist) => playlist.id !== id));
-  // 	};
 
   return (
     <Switch>
@@ -53,7 +49,8 @@ export default function MainContainer(props) {
 // 				<Songs SongList={SongList} />
 // 			</Route> */}
       <Route path="/playlists/:id">
-        <PlaylistDetails />
+        <PlaylistDetails currentUser={currentUser}
+          handleDelete={handleDelete}/>
       </Route>
     </Switch>
   );

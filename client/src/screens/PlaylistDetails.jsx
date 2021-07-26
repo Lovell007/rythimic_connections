@@ -4,9 +4,12 @@ import { getOnePlaylist } from '../services/playlists';
 import { BsThreeDots } from 'react-icons/bs';
 import { IconContext } from 'react-icons/';
 import Modal from '../components/Modal';
+import PlaylistMenu from './PlaylistMenu';
 
-export default function PlaylistDetails() {
+export default function PlaylistDetails(props) {
   const [modal, setModal] = useState(false);
+  const [modal2, setModal2] = useState(false)
+  const { currentUser, handleDelete } = props
   const [playlist, setPlaylist] = useState(null);
   const { id } = useParams();
   console.log(id);
@@ -21,7 +24,18 @@ export default function PlaylistDetails() {
 
   return (
     <div>
-      <h3 className="playlistTitle">{playlist?.name}</h3>
+      <div className='playlistRow'>
+        <h3 className="playlistTitle">{playlist?.name}</h3>
+        <IconContext.Provider value={{ size: 70 }}>
+            <div>
+              <BsThreeDots onClick={() => setModal(true)} />
+            </div>
+        </IconContext.Provider>
+      </div>
+      <Modal modal={modal} setModal={setModal}>
+        <PlaylistMenu playlist={playlist} currentUser={currentUser}
+          handleDelete={handleDelete}/>
+      </Modal>
       {playlist?.songs.map(song => (
         <div className="songRows">
           <img className="rowSongImg" src={song.image_url} />
@@ -33,7 +47,7 @@ export default function PlaylistDetails() {
               <BsThreeDots onClick={() => setModal(true)} />
             </div>
           </IconContext.Provider>
-          <Modal></Modal>
+          {/* <Modal></Modal> */}
         </div>
       ))}
     </div>
