@@ -3,16 +3,12 @@ import {Link} from 'react-router-dom'
 import Modal from '../components/Modal';
 import Login from '../screens/Login'
 import Register from '../screens/Register';
+import PlaylistCreate from '../screens/PlaylistCreate'
 
 export default function Layout(props) {
   const { currentUser, handleLogin } = props;
 
   const [modal, setModal] = useState(false);
-
-  
-  // const toggleModal = () => {
-  //   setModal(!modal);
-  // };
 
   return (
     <div>
@@ -22,8 +18,8 @@ export default function Layout(props) {
 					<div className='username' onClick={() => setModal(true)}>
 						{currentUser.username}
             </div>
-            <Modal modal={modal} setModal={setModal}>
-              <h3>playlists</h3>
+            <Modal modal={modal} setModal={setModal} className='create'>
+              <PlaylistCreate />
             </Modal>
             </>
         ) : (
@@ -34,7 +30,6 @@ export default function Layout(props) {
             </Modal>
            </>
 				)}
-        <hr />
       </header>
       {props.children}
     </div>

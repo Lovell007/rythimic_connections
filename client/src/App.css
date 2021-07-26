@@ -2,3 +2,45 @@
   text-align: center;
 }
 
+.playlistTitle {
+  font-size: 10vh;
+  margin: 45px 10px 100px 10px
+}
+
+.songRows {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.rowSongName {
+  font-size: 8vh;
+  margin: 3px 12px 3px 10px;
+}
+
+.rowSongImg {
+  height: 70px;
+  width: 70px;
+}
+
+.username {
+  font-size: 3vh;
+  text-align: right;
+  margin: 15px 18px 18px 15px
+}
+
+#BsThreeDots {
+ size: 3em; 
+}
+
+.newPlaylist {
+  border: none;
+
+}
+
+.newPlaylistTitle {
+  font-size: 9vh;
+  margin: 5px 5px 12px 5px;
+}
+

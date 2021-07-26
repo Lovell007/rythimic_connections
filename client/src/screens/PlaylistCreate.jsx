@@ -20,17 +20,15 @@ export default function PlaylistCreate(props) {
       e.preventDefault();
       handleCreate(formData);
     }}>
-			<h3>Create Playlist</h3>
-			<label>
-				Name:
-				<input
+			<h3 className='newPlaylistTitle'>New Playlist</h3>
+        <input
+          className='newPlaylist'
 					type='text'
 					name='name'
 					value={name}
 					onChange={handleChange}
 				/>
-			</label>
-			<button>Submit</button>
+			<button className='newPlaylistBtn'>Create</button>
 		</form>
 	);
 }

@@ -26,7 +26,7 @@ export default function Home(props) {
         <div className='cyop' onClick={() => setModal(true)}>
           Create Your Own Playlist
         </div>
-        <Modal modal={modal} setModal={setModal}>
+        <Modal modal={modal} setModal={setModal} className='createModal'>
           <PlaylistCreate />
             </Modal>
             <div>
