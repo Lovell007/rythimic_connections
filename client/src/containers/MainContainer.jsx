@@ -3,7 +3,7 @@ import { Switch, Route, useHistory } from 'react-router-dom';
 import Home from '../screens/Home';
 import PlaylistDetails from '../screens/PlaylistDetails';
 
-import { getAllPlaylists, postPlaylist, putPlaylist, deletePlaylist } from '../services/playlists';
+import { postPlaylist, putPlaylist, deletePlaylist } from '../services/playlists';
 import { getAllSongs } from '../services/songs';
 // import Songs from '../screens/Songs';
 // import Playlists from '../screens/Playlists';
@@ -11,69 +11,50 @@ import { getAllSongs } from '../services/songs';
 // import PlaylistEdit from '../screens/PlaylistEdit';
 
 export default function MainContainer(props) {
-	const [allPlaylists, setallPlaylists] = useState([]);
-	const [SongList, setSongList] = useState([]);
+  const [SongList, setSongList] = useState([]);
   const history = useHistory();
-  const {currentUser} = props
+  const { currentUser, userPlaylists } = props;
 
-	useEffect(() => {
-		const fetchPlaylists = async () => {
-			const playlistData = await getAllPlaylists();
-			setallPlaylists(playlistData);
-		};
-		const fetchSongs = async () => {
-			const SongData = await getAllSongs();
-			setSongList(SongData);
-		};
-		fetchPlaylists();
-		fetchSongs();
-	}, []);
+  useEffect(() => {
+    const fetchSongs = async () => {
+      const SongData = await getAllSongs();
+      setSongList(SongData);
+    };
+    fetchSongs();
+  }, []);
 
-// 	const handleCreate = async (formData) => {
-// 		const playlistData = await postPlaylist(formData);
-// 		setallPlaylists((prevState) => [...prevState, playlistData]);
-// 		history.push('/playlists');
-// 	};
+  // 	const handleCreate = async (formData) => {
+  // 		const playlistData = await postPlaylist(formData);
+  // 		setallPlaylists((prevState) => [...prevState, playlistData]);
+  // 		history.push('/playlists');
+  // 	};
 
-// 	const handleUpdate = async (id, formData) => {
-// 		const playlistData = await putPlaylist(id, formData);
-// 		setallPlaylists((prevState) =>
-// 			prevState.map((playlist) => {
-// 				return playlist.id === Number(id) ? playlistData : playlist;
-// 			})
-// 		);
-// 		history.push('/playlists');
-// 	};
+  // 	const handleUpdate = async (id, formData) => {
+  // 		const playlistData = await putPlaylist(id, formData);
+  // 		setallPlaylists((prevState) =>
+  // 			prevState.map((playlist) => {
+  // 				return playlist.id === Number(id) ? playlistData : playlist;
+  // 			})
+  // 		);
+  // 		history.push('/playlists');
+  // 	};
 
-// 	const handleDelete = async (id) => {
-// 		await deletePlaylist(id);
-// 		setallPlaylists((prevState) => prevState.filter((playlist) => playlist.id !== id));
-// 	};
-  
-  const userPlaylists = allPlaylists?.filter((playlist) => {
-    return playlist.userid === currentUser?.user_id
-  })
+  // 	const handleDelete = async (id) => {
+  // 		await deletePlaylist(id);
+  // 		setallPlaylists((prevState) => prevState.filter((playlist) => playlist.id !== id));
+  // 	};
 
   return (
     <Switch>
-      <Route path='/home'>
-        <Home currentUser={currentUser} userPlaylists={userPlaylists}/>
+      <Route path="/home">
+        <Home currentUser={currentUser} userPlaylists={userPlaylists} />
       </Route>
-{/* // 			<Route path='/Songs'>
+      {/* // 			<Route path='/Songs'>
 // 				<Songs SongList={SongList} />
 // 			</Route> */}
-{/* // 			<Route path='/playlists/:id/edit'>
-// 				<PlaylistEdit allPlaylists={allPlaylists} handleUpdate={handleUpdate} />
-// 			</Route> */}
-{/* // 			<Route path='/playlists/new'>
-// 				<PlaylistCreate handleCreate={handleCreate} />
-// 			</Route> */}
-			<Route path='/playlists/:id'>
+      <Route path="/playlists/:id">
         <PlaylistDetails />
-			</Route>
-{/* // 			<Route path='/playlists'>
-// 				<Playlists allPlaylists={allPlaylists} handleDelete={handleDelete} />
-// 			</Route> */}
-		</Switch>
-	);
+      </Route>
+    </Switch>
+  );
 }
