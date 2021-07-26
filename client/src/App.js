@@ -24,11 +24,7 @@ function App() {
     fetchPlaylists();
     handleVerify();
   }, []);
-  
-  const handleDelete = async (id) => {
-    await deletePlaylist(id);
-    setallPlaylists((prevState) => prevState.filter((playlist) => playlist.id !== id));
-  };
+
   
   const handleLogin = async formData => {
     const userData = await loginUser(formData);
@@ -64,8 +60,7 @@ function App() {
             <Register handleRegister={handleRegister} />
           </Route>
           <Route path="/">
-            <MainContainer userPlaylists={userPlaylists} currentUser={currentUser}
-              handleDelete={handleDelete}/>
+            <MainContainer playlistList={userPlaylists} currentUser={currentUser}/>
           </Route>
         </Switch>
       </Layout>

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import '../assets/css/Home.css';
 import headerImage from '../assets/images/Music.png';
 import Modal from '../components/Modal';
+import Login from './Login';
 import PlaylistCreate from './PlaylistCreate';
 
 export default function Home(props) {
@@ -18,7 +19,7 @@ export default function Home(props) {
             Create Your Own Playlist!!!
           </div>
           <Modal modal={modal} setModal={setModal}>
-            <PlaylistCreate />
+            <Login />
           </Modal>
         </>
       ) : (

@@ -13,21 +13,28 @@ import { getAllSongs } from '../services/songs';
 export default function MainContainer(props) {
   const [SongList, setSongList] = useState([]);
   const history = useHistory();
-  const { currentUser, userPlaylists, handleDelete } = props;
+  const { currentUser, playlistList } = props;
+  const [userPlaylists, setUserPlaylists] = useState([])
 
   useEffect(() => {
     const fetchSongs = async () => {
       const SongData = await getAllSongs();
       setSongList(SongData);
+      setUserPlaylists(playlistList)
     };
     fetchSongs();
   }, []);
 
-  // 	const handleCreate = async (formData) => {
-  // 		const playlistData = await postPlaylist(formData);
-  // 		setallPlaylists((prevState) => [...prevState, playlistData]);
-  // 		history.push('/playlists');
-  // 	};
+  	const handleCreate = async (formData) => {
+  		const playlistData = await postPlaylist(formData);
+  		setUserPlaylists((prevState) => [...prevState, playlistData]);
+  		history.push('/playlists');
+    };
+  
+    const handleDelete = async (id) => {
+      await deletePlaylist(id);
+      setUserPlaylists((prevState) => prevState.filter((playlist) => playlist.id !== id));
+    };
 
   // 	const handleUpdate = async (id, formData) => {
   // 		const playlistData = await putPlaylist(id, formData);
@@ -43,7 +50,7 @@ export default function MainContainer(props) {
   return (
     <Switch>
       <Route path="/home">
-        <Home currentUser={currentUser} userPlaylists={userPlaylists} />
+        <Home currentUser={currentUser} userPlaylists={userPlaylists} handleCreate={handleCreate}/>
       </Route>
       {/* // 			<Route path='/Songs'>
 // 				<Songs SongList={SongList} />
