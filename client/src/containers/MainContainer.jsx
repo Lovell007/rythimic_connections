@@ -21,6 +21,7 @@ export default function MainContainer(props) {
       const SongData = await getAllSongs();
       setSongList(SongData);
       setUserPlaylists(playlistList)
+      console.log(userPlaylists);
     };
     fetchSongs();
   }, []);

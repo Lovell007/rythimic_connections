@@ -9,7 +9,7 @@ import PlaylistCreate from './PlaylistCreate';
 export default function Home(props) {
   const { currentUser, userPlaylists } = props;
   const [modal, setModal] = useState(false);
-
+  console.log(userPlaylists);
   return (
     <div>
       <img className="homeImg" src={headerImage} />
