@@ -13,7 +13,6 @@ export default function Modal(props) {
     }
 
   }, [modal])
-console.log(setModal);
   return (
     <div>
       {modal && ( 

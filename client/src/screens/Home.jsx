@@ -3,13 +3,12 @@ import { Link } from 'react-router-dom'
 import '../assets/css/Home.css'
 import headerImage from '../assets/images/Music.png'
 import Modal from '../components/Modal'
-import Login from './Login'
 import PlaylistCreate from './PlaylistCreate'
 
 export default function Home(props) {
   const { currentUser, userPlaylists } = props
   const [modal, setModal] = useState(false);
-
+  
   return (
     <div>
       <img className="homeImg" src={headerImage}/>
@@ -29,14 +28,16 @@ export default function Home(props) {
         </div>
         <Modal modal={modal} setModal={setModal}>
           <PlaylistCreate />
-        </Modal>
-          {userPlaylists.map(playlist => (
+            </Modal>
             <div>
-              <Link to='/playlist/:id'>
-                {playlist.name}
-              </Link>
+            {userPlaylists.map((playlist) => (
+            <div key={playlist.id}>
+                <Link to={`/playlists/${playlist.id}`}>
+                <p>{playlist.name}</p>
+                </Link>
             </div>
           ))}
+        </div>
         </>
       )}      
     </div>

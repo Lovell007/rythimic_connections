@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Switch, Route, useHistory } from 'react-router-dom';
 import Home from '../screens/Home';
+import PlaylistDetails from '../screens/PlaylistDetails';
 
 import { getAllPlaylists, postPlaylist, putPlaylist, deletePlaylist } from '../services/playlists';
 import { getAllSongs } from '../services/songs';
@@ -8,7 +9,6 @@ import { getAllSongs } from '../services/songs';
 // import Playlists from '../screens/Playlists';
 // import PlaylistCreate from '../screens/PlaylistCreate';
 // import PlaylistEdit from '../screens/PlaylistEdit';
-// import PlaylistDetail from '../screens/PlaylistDetail';
 
 export default function MainContainer(props) {
 	const [allPlaylists, setallPlaylists] = useState([]);
@@ -51,7 +51,7 @@ export default function MainContainer(props) {
 // 	};
   
   const userPlaylists = allPlaylists?.filter((playlist) => {
-    return playlist.user_id === currentUser.id
+    return playlist.userid === currentUser?.user_id
   })
 
   return (
@@ -69,8 +69,7 @@ export default function MainContainer(props) {
 // 				<PlaylistCreate handleCreate={handleCreate} />
 // 			</Route> */}
 			<Route path='/playlists/:id'>
-        {/* <PlaylistDetail SongList={SongList} /> */}
-        <h3>Details, baby!</h3>
+        <PlaylistDetails />
 			</Route>
 {/* // 			<Route path='/playlists'>
 // 				<Playlists allPlaylists={allPlaylists} handleDelete={handleDelete} />
