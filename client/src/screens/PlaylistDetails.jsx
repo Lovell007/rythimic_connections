@@ -43,17 +43,17 @@ export default function PlaylistDetails(props) {
           <img className="rowSongImg" src={song.image_url} />
           <p className="rowSongName" key={song.id}>
             {song.name}
+          </p>
           <IconContext.Provider value={{ size: 50 }}>
             <div>
-              <BsThreeDots onClick={() => setModal2(true)} />
+              <BsThreeDots onClick={() => setModal2(song)} />
             </div>
           </IconContext.Provider>
-          <Modal key={song} modal={modal2} setModal={setModal2}>
-            <SongMenu song={song} />
-          </Modal>
-          </p>
         </div>
       ))}
+          <Modal modal={modal2} setModal={setModal2}>
+            <SongMenu song={modal2} />
+          </Modal>
     </div>
   );
 }

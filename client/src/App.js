@@ -54,7 +54,8 @@ function App() {
       <Layout userPlaylists={userPlaylists}
         currentUser={currentUser}
         handleLogin={handleLogin}
-        handleLogout={handleLogout}>
+        handleLogout={handleLogout}
+        handleRegister={handleRegister}>
         <Switch>
           <Route path="/register">
             <Register handleRegister={handleRegister} />

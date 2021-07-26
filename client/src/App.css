@@ -1,25 +1,28 @@
 /* Kudos and credit to https://kovart.github.io/dashed-border-generator/ for their 'border' generator */
 
-
 .App {
   text-align: center;
 }
 
 .playlistTitle {
   font-size: 10vh;
-  margin: 45px 10px 100px 10px
+  margin: 45px 10px 100px 10px;
 }
 
 .songRows {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  margin: 2% 10%;
 }
 
 .rowSongName {
-  font-size: 8vh;
-  margin: 3px 12px 3px 10px;
+  display: flex;
+  font-size: 10vh;
+  margin: 3px 0 3px 10px;
+  justify-content: left;
+  padding: 0 0 0 0;
 }
 
 .rowSongImg {
@@ -30,16 +33,15 @@
 .username {
   font-size: 3vh;
   text-align: right;
-  margin: 15px 18px 18px 15px
+  margin: 15px 18px 18px 15px;
 }
 
 #BsThreeDots {
- size: 3em; 
+  size: 3em;
 }
 
 .newPlaylist {
   border: none;
-
 }
 
 .newPlaylistTitle {
@@ -48,36 +50,36 @@
 }
 
 .cyop {
-height: 13vw;
-width: 13vw;
-background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='white' stroke-width='4' stroke-dasharray='20%2c 30' stroke-dashoffset='11' stroke-linecap='round'/%3e%3c/svg%3e");
-margin: 25px;
-padding: 4.4vw 3.5vw 1.6vw 3.5vw;
-font-size: 3.1vw;
+  height: 13vw;
+  width: 13vw;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='white' stroke-width='4' stroke-dasharray='20%2c 30' stroke-dashoffset='11' stroke-linecap='round'/%3e%3c/svg%3e");
+  margin: 25px;
+  padding: 4.4vw 3.5vw 1.6vw 3.5vw;
+  font-size: 3.1vw;
 }
 
 .homePLimg {
-height: 10vw;
-width: 15vw;
-text-align: center;
-margin: 4vw 4vw 0 4vw;
-padding: 5vw 2vw 0 2vw;
-border: 2px solid white;
+  height: 10vw;
+  width: 15vw;
+  text-align: center;
+  margin: 4vw 4vw 0 4vw;
+  padding: 5vw 2vw 0 2vw;
+  border: 2px solid white;
 }
 
 .homeList {
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
-justify-content: space-evenly;
-margin: 1vw;
-padding: 15px;
-font-size: 3vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 1vw;
+  padding: 15px;
+  font-size: 3vw;
 }
 
 .homeName {
-font-size: 3.3vw;
-padding: 1vw 0 0 0;
+  font-size: 3.3vw;
+  padding: 1vw 0 0 0;
 }
 
 .playlistsSecName {
@@ -94,5 +96,4 @@ a:link {
 a:visited {
   text-decoration: none;
   color: white;
-
 }

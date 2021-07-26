@@ -29,7 +29,7 @@ export default function MainContainer(props) {
   	const handleCreate = async (formData) => {
   		const playlistData = await postPlaylist(formData);
   		setUserPlaylists((prevState) => [...prevState, playlistData]);
-  		history.push('/playlists');
+  		history.push('/home');
     };
   
     const handleDelete = async (id) => {
