@@ -45,7 +45,7 @@ export default function PlaylistDetails(props) {
             {song.name}
           </p>
           <IconContext.Provider value={{ size: 50 }}>
-            <div>
+            <div className='dots'>
               <BsThreeDots onClick={() => setModal2(song)} />
             </div>
           </IconContext.Provider>
