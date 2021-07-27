@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
 export default function PlaylistMenu(props) {
-  const { playlist, currentUser, handleDelete } = props
-  
+  const { playlist, currentUser, handleDelete, toggleEdit } = props;
+
   return (
     <div>
       <p>{playlist.name}</p>
@@ -11,8 +11,8 @@ export default function PlaylistMenu(props) {
         <p>Play Playlist</p>
         <p onClick={() => handleDelete(playlist.id)}>Delete Playlist</p>
         <p>Shuffle Playlist</p>
-        <p>Edit Playlist</p>
+        <p onClick={toggleEdit}>Edit Playlist</p>
       </div>
     </div>
-  )
+  );
 }

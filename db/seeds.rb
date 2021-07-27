@@ -6,11 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-@admin = User.create!(username: 'Beast Mode', password: '123456')
+@admin = User.create!(username: 'John', password: '123456')
 
 puts "#{User.count} user(s) created"
 
-@smooth_jazz = Playlist.create!(name: 'Smooth Jazz', user: @admin)
+# @smooth_jazz = Playlist.create!(name: 'Smooth Jazz', user: @admin)
 @fire_mix = Playlist.create!(name: 'Fire Mix', user: @admin)
 
 puts "#{Playlist.count} food(s) created"

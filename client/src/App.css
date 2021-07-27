@@ -5,8 +5,14 @@
 }
 
 .playlistTitle {
-  font-size: 10vh;
-  margin: 45px 10px 100px 10px;
+  font-size: 9vw;
+  margin: 45px 10px 100px 40px;
+}
+
+.PLdots {
+  margin: 33px 0 0 0;
+  position: absolute;
+  right: 7vw;
 }
 
 .songRows {
@@ -19,28 +25,38 @@
 
 .rowSongName {
   display: flex;
-  font-size: 10vh;
-  margin: 3px 0 3px 10px;
+  font-size: 6vw;
+  margin: 3px 0 3px 20px;
   justify-content: left;
   padding: 0 0 0 0;
 }
 
 .rowSongImg {
-  height: 70px;
-  width: 70px;
+  height: 7vw;
+  width: 7vw;
+}
+
+.playlistRow {
+  display: flex;
+  flex-direction: row;
 }
 
 .dots {
+  position: absolute;
+  right: 8vw;
 }
 
 .username {
-  font-size: 3vh;
+  font-size: 4vw;
   text-align: right;
-  margin: 15px 18px 18px 15px;
+  margin: 25px 18px 18px 15px;
 }
 
-#BsThreeDots {
-  size: 3em;
+.homepage {
+  height: 4vw;
+  width: 4vw;
+  position: absolute;
+  left: 35px;
 }
 
 .newPlaylist {
