@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = process.env.NODE_ENV === 'production' ? 'https://git.heroku.com/rhythmic-connections-api.git' :'http://localhost:3000'
+const baseUrl = process.env.NODE_ENV === 'production' ? 'https://rhythmic-connections-api.herokuapp.com/' :'http://localhost:3000'
 
 const api = axios.create({
   baseURL: baseUrl
