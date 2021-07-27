@@ -116,3 +116,24 @@ a:visited {
   text-decoration: none;
   color: white;
 }
+
+input {
+  background: none;
+  outline: 0;
+  border: 0;
+  border-bottom: 2px solid gray;
+}
+
+.menu {
+  text-align: left;
+  font-size: 2.5vw;
+}
+
+.PLmenuTitle {
+  font-size: 4.5vw;
+}
+
+.SMname {
+  font-size: 4.5vw;
+  margin: 0 0 16px 0;
+}

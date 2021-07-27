@@ -2,7 +2,8 @@ body.active-modal {
   overflow-y: hidden;
 }
 
-.modal, .overlay {
+.modal,
+.overlay {
   width: 100vw;
   height: 100vh;
   top: 0;
@@ -13,7 +14,7 @@ body.active-modal {
 }
 
 .overlay {
-  background: rgba(49,49,49,0.8);
+  background: rgba(49, 49, 49, 0.8);
 }
 .modal-content {
   position: absolute;
@@ -23,7 +24,7 @@ body.active-modal {
   line-height: 1.4;
   background: #161616;
   padding: 14px 28px;
-  border-radius: 3px;
+  border-radius: 7px;
   max-width: 1300px;
   min-width: 300px;
 }

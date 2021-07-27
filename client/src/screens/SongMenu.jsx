@@ -1,18 +1,17 @@
-import React from 'react'
+import React from 'react';
 
 export default function SongMenu(props) {
-  const {song} = props
+  const { song } = props;
 
   return (
     <div>
-      <p>{song.name}</p>
-      <p>place holder</p>
-      <div>
+      <p className="SMname">{song.name}</p>
+      <div className="menu">
         <p>Remove Song</p>
         <p>Add to Playlist</p>
         <p>Go to Artist</p>
         <p>Go to Album</p>
       </div>
     </div>
-  )
+  );
 }

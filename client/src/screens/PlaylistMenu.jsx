@@ -5,9 +5,9 @@ export default function PlaylistMenu(props) {
 
   return (
     <div>
-      <p>{playlist.name}</p>
-      <p>{currentUser.username}</p>
-      <div>
+      <p className="PLmenuTitle">{playlist.name}</p>
+      <p className="PLmenuUser">{currentUser.username}</p>
+      <div className="menu">
         <p>Play Playlist</p>
         <p onClick={() => handleDelete(playlist.id)}>Delete Playlist</p>
         <p>Shuffle Playlist</p>
