@@ -1,10 +1,10 @@
 class PlaylistsController < ApplicationController
   before_action :set_playlist, only: [:show, :update, :destroy, :add_song]
-  before_action :authorize_request, only: [:create, :update, :destroy]
+  before_action :authorize_request, only: [:index, :create, :update, :destroy]
 
   # GET /playlists
   def index
-    @playlists = Playlist.all
+    @playlists = @current_user.playlists
 
     render json: @playlists
   end

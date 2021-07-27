@@ -5,10 +5,10 @@ import Login from '../screens/Login';
 import Register from '../screens/Register';
 import PlaylistCreate from '../screens/PlaylistCreate';
 import Playlists from '../screens/Playlists';
+import homepage from '../assets/images/house-309113_640.png'
 
 export default function Layout(props) {
   const { currentUser, handleLogin, userPlaylists, handleLogout } = props;
-
   const [modal, setModal] = useState(false);
 
   return (
@@ -16,6 +16,9 @@ export default function Layout(props) {
       <header>
         {currentUser ? (
           <>
+            <Link to='/home'>
+              <img className='homepage' src={homepage} />
+            </Link>
             <div className="username" onClick={() => setModal(true)}>
               {currentUser.username}
             </div>

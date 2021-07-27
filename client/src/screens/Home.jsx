@@ -7,7 +7,7 @@ import Login from './Login';
 import PlaylistCreate from './PlaylistCreate';
 
 export default function Home(props) {
-  const { currentUser, userPlaylists } = props;
+  const { currentUser, userPlaylists, handleCreate } = props;
   const [modal, setModal] = useState(false);
   console.log(userPlaylists);
   return (
@@ -30,7 +30,7 @@ export default function Home(props) {
               Create Your Own Playlist
             </div>
             <Modal modal={modal} setModal={setModal}>
-              <PlaylistCreate />
+                <PlaylistCreate handleCreate={handleCreate}/>
             </Modal>
             {userPlaylists.map(playlist => (
               <div key={playlist.id}>

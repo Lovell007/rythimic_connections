@@ -4,11 +4,11 @@ import './App.css';
 import MainContainer from './containers/MainContainer';
 import Layout from './layouts/Layout';
 import Register from './screens/Register';
-import { getAllPlaylists, deletePlaylist } from './services/playlists';
 import { loginUser, registerUser, removeToken, verifyUser } from './services/auth';
+import { postPlaylist, putPlaylist, deletePlaylist, getAllPlaylists } from './services/playlists';
 
 function App() {
-  const [allPlaylists, setallPlaylists] = useState([]);
+  const [userPlaylists, setUserPlaylists] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
   const history = useHistory();
 
@@ -17,14 +17,38 @@ function App() {
       const userData = await verifyUser();
       setCurrentUser(userData);
     };
-    const fetchPlaylists = async () => {
-      const playlistData = await getAllPlaylists();
-      setallPlaylists(playlistData);
-    };
-    fetchPlaylists();
     handleVerify();
   }, []);
 
+  useEffect(() => {
+  const fetchPlaylists = async () => {
+    const playlistData = await getAllPlaylists();
+    setUserPlaylists(playlistData);
+  };
+    if (currentUser) fetchPlaylists();
+  }, [currentUser])
+
+
+  const handleUpdate = async (id, formData) => {
+    const playlistData = await putPlaylist(id, formData);
+    setUserPlaylists((prevState) =>
+      prevState.map((playlist) => {
+        return playlist.id === Number(id) ? playlistData : playlist;
+      })
+    );
+    return playlistData
+  };
+
+  const handleCreate = async (formData) => {
+    const playlistData = await postPlaylist(formData);
+    setUserPlaylists((prevState) => [...prevState, playlistData]);
+    history.push('/home');
+  };
+
+  const handleDelete = async (id) => {
+    await deletePlaylist(id);
+    setUserPlaylists((prevState) => prevState.filter((playlist) => playlist.id !== id));
+  };
   
   const handleLogin = async formData => {
     const userData = await loginUser(formData);
@@ -45,22 +69,23 @@ function App() {
     history.push('/home');
   };
   
-    const userPlaylists = allPlaylists?.filter(playlist => {
-      return playlist.userid === currentUser?.user_id;
-    });
-  
   return (
     <div className="App">
       <Layout userPlaylists={userPlaylists}
         currentUser={currentUser}
         handleLogin={handleLogin}
-        handleLogout={handleLogout}>
+        handleLogout={handleLogout}
+        handleRegister={handleRegister}>
         <Switch>
           <Route path="/register">
             <Register handleRegister={handleRegister} />
           </Route>
           <Route path="/">
-            <MainContainer playlistList={userPlaylists} currentUser={currentUser}/>
+            <MainContainer userPlaylists={userPlaylists}
+              currentUser={currentUser}
+              handleCreate={handleCreate}
+              handleDelete={handleDelete}
+              handleUpdate={handleUpdate}/>
           </Route>
         </Switch>
       </Layout>
