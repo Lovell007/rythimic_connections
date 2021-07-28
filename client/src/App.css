@@ -49,7 +49,7 @@
 .username {
   font-size: 4vw;
   text-align: right;
-  margin: 25px 18px 18px 15px;
+  margin: 25px 30px 18px 15px;
 }
 
 .homepage {
@@ -59,12 +59,8 @@
   left: 35px;
 }
 
-.newPlaylist {
-  border: none;
-}
-
 .newPlaylistTitle {
-  font-size: 9vh;
+  font-size: 5vh;
   margin: 5px 5px 12px 5px;
 }
 
@@ -136,4 +132,30 @@ input {
 .SMname {
   font-size: 4.5vw;
   margin: 0 0 16px 0;
+}
+
+.profileName {
+  font-size: 4.5vw;
+}
+
+.proPLname {
+  font-size: 2.8vw;
+  text-align: left;
+  min-height: 60px;
+}
+
+.signout {
+  text-align: right;
+}
+
+.newPlaylistBtn {
+  border-radius: 6px;
+  background-color: blue;
+  color: white;
+  font-size: 2.8vw;
+  padding: 4px 6px;
+}
+
+.newPlaylist {
+  margin: 0 25px 0 0;
 }

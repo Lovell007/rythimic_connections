@@ -26,7 +26,7 @@ export default function PlaylistEdit(props) {
       }}
     >
       <input name="name" type="text" value={formData.name} onChange={handleChange} />
-      <button>Submit</button>
+      <button className="saveBtn">Save</button>
     </form>
   );
 }
