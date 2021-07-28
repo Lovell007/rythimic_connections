@@ -37,6 +37,13 @@ export default function PlaylistDetails(props) {
     }));
     setIsEdit(false);
   };
+  // Request URL: https://cdn.pixabay.com/audio/2021/07/26/audio_c8102c4eae.mp3
+
+  let audio = new Audio('https://cdn.pixabay.com/audio/2021/07/26/audio_c8102c4eae.mp3');
+
+  const start = () => {
+    audio.play();
+  };
 
   return (
     <div>
@@ -46,7 +53,7 @@ export default function PlaylistDetails(props) {
         ) : (
           <h3 className="playlistTitle">{playlist?.name}</h3>
         )}
-        <IconContext.Provider value={{ size: 70 }}>
+        <IconContext.Provider value={{ size: 80 }}>
           <div className="PLdots">
             <BsThreeDots onClick={() => setModal(true)} />
           </div>
@@ -66,6 +73,9 @@ export default function PlaylistDetails(props) {
           <p className="rowSongName" key={song.id}>
             {song.name}
           </p>
+          <div>
+            <button onClick={start}>Play</button>
+          </div>
           <IconContext.Provider value={{ size: 50 }}>
             <div className="dots">
               <BsThreeDots onClick={() => setModal2(song)} />
