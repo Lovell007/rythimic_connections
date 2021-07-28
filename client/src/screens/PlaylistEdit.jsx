@@ -20,13 +20,22 @@ export default function PlaylistEdit(props) {
 
   return (
     <form
+      className="editForm"
       onSubmit={e => {
         e.preventDefault();
         handlePlaylistState(playlist.id, formData);
       }}
     >
-      <input name="name" type="text" value={formData.name} onChange={handleChange} />
-      <button className="saveBtn">Save</button>
+      <div className="playlistEdit">
+        <input
+          className="editInput"
+          name="name"
+          type="text"
+          value={formData.name}
+          onChange={handleChange}
+        />
+        <div className="saveBtn">Save</div>
+      </div>
     </form>
   );
 }

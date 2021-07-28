@@ -2,6 +2,7 @@
 
 .App {
   text-align: center;
+  font-size: 2vw;
 }
 
 .playlistTitle {
@@ -41,6 +42,7 @@
 .playlistRow {
   display: flex;
   flex-direction: row;
+  /* background-color: #121212; */
 }
 
 .dots {
@@ -62,7 +64,7 @@
 }
 
 .newPlaylistTitle {
-  font-size: 5vh;
+  font-size: 5vw;
   margin: 5px 5px 12px 5px;
 }
 
@@ -116,10 +118,13 @@ a:visited {
 }
 
 input {
+  font-size: 3vw;
+  max-width: 14vw;
   background: none;
   outline: 0;
   border: 0;
   border-bottom: 2px solid gray;
+  color: white;
 }
 
 .menu {
@@ -160,4 +165,33 @@ input {
 
 .newPlaylist {
   margin: 0 25px 0 0;
+}
+
+.playlistEdit {
+  margin: 18px 0 30px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  padding: 1% 10%;
+  background-color: #121212;
+  border-bottom: solid 5px #121212
+}
+
+.saveBtn {
+position: absolute;
+right: 7vw;
+font-size: 4.5vw;
+color: red;
+padding: 15px 0 0 0;
+}
+
+.editInput {
+  font-size: 9vw;
+  max-width: 80%;
+  color: white;
+}
+
+.editForm {
+  border: solid 10px 0a0a0a;
 }
