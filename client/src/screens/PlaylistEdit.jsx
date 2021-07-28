@@ -34,7 +34,7 @@ export default function PlaylistEdit(props) {
           value={formData.name}
           onChange={handleChange}
         />
-        <div className="saveBtn">Save</div>
+        <button className="saveBtn">Save</button>
       </div>
     </form>
   );

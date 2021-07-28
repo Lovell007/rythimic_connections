@@ -14,9 +14,11 @@ export default function Layout(props) {
       <header>
         {currentUser ? (
           <>
-            <Link to="/home">
-              <img className="homepage" src={homepage} />
-            </Link>
+            <div className="homepage">
+              <Link to="/home">
+                <img src={homepage} className="homeIcon" />
+              </Link>
+            </div>
             <div className="username" onClick={() => setModal(true)}>
               {currentUser.username}
             </div>
@@ -33,7 +35,7 @@ export default function Layout(props) {
             <Link to="/home">
               <img className="homepage" src={homepage} />
             </Link>
-            <div className="header" onClick={() => setModal(true)}>
+            <div className="username" onClick={() => setModal(true)}>
               Sign In
             </div>
             <Modal modal={modal} setModal={setModal}>

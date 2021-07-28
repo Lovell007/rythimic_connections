@@ -1,28 +1,25 @@
-import React, { useEffect, useState } from "react";
-import "./Modal.css";
+import React, { useEffect, useState } from 'react';
+import './Modal.css';
 
 export default function Modal(props) {
-  // const [modal, setModal] = useState(false);
-  const {setModal, modal} = props
+  const { setModal, modal } = props;
 
   useEffect(() => {
-    if(modal) {
-      document.body.classList.add('active-modal')
+    if (modal) {
+      document.body.classList.add('active-modal');
     } else {
-      document.body.classList.remove('active-modal')
+      document.body.classList.remove('active-modal');
     }
+  }, [modal]);
 
-  }, [modal])
   return (
     <div>
-      {modal && ( 
+      {modal && (
         <div className="modal">
           <div onClick={() => setModal(false)} className="overlay"></div>
-        <div className="modal-content">
-            {props.children}
-          </div>
+          <div className="modal-content">{props.children}</div>
         </div>
       )}
-      </div>
+    </div>
   );
 }

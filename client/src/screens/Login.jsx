@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import Modal from '../components/Modal';
+import Register from './Register';
 
 export default function Login(props) {
+  const [modal, setModal] = useState(false);
   const [formData, setFormData] = useState({
     username: '',
     password: '',
@@ -24,13 +26,27 @@ export default function Login(props) {
         handleLogin(formData);
       }}
     >
-      <h3>Login</h3>
-      <input type="text" name="username" value={username} onChange={handleChange} />
+      <h3 className="login">Login</h3>
+      <input
+        className="loginUser"
+        type="text"
+        name="username"
+        value={username}
+        onChange={handleChange}
+      />
       <br />
-      <input type="password" name="password" value={password} onChange={handleChange} />
+      <input
+        type="password"
+        name="password"
+        className="password"
+        value={password}
+        onChange={handleChange}
+      />
       <br />
-      <Link to="/register">Create an Account</Link>
-      <button>Submit</button>
+      <button className="createAccount">Let's Jam</button>
+      <Modal modal={modal} setModal={setModal}>
+        <Register />
+      </Modal>
     </form>
   );
 }
