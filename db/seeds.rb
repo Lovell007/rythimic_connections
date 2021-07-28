@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-@admin = User.create!(username: 'John', password: '123456')
+@admin = User.create!(username: 'Bob', password: '123456')
 
 puts "#{User.count} user(s) created"
 

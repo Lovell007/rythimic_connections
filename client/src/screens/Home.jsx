@@ -9,7 +9,7 @@ import PlaylistCreate from './PlaylistCreate';
 export default function Home(props) {
   const { currentUser, userPlaylists, handleCreate } = props;
   const [modal, setModal] = useState(false);
-  console.log(userPlaylists);
+
   return (
     <div>
       <img className="homeImg" src={headerImage} />
@@ -30,7 +30,7 @@ export default function Home(props) {
               Create Your Own Playlist
             </div>
             <Modal modal={modal} setModal={setModal}>
-                <PlaylistCreate handleCreate={handleCreate}/>
+              <PlaylistCreate handleCreate={handleCreate} />
             </Modal>
             {userPlaylists.map(playlist => (
               <div key={playlist.id}>

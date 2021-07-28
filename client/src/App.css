@@ -2,6 +2,7 @@
 
 .App {
   text-align: center;
+  font-size: 2vw;
 }
 
 .playlistTitle {
@@ -20,7 +21,9 @@
   flex-direction: row;
   align-items: center;
   justify-content: left;
-  margin: 2% 10%;
+  padding: 1% 10%;
+  background-color: #0a0a0a;
+  border-bottom: solid 5px #121212;
 }
 
 .rowSongName {
@@ -39,6 +42,7 @@
 .playlistRow {
   display: flex;
   flex-direction: row;
+  /* background-color: #121212; */
 }
 
 .dots {
@@ -49,7 +53,7 @@
 .username {
   font-size: 4vw;
   text-align: right;
-  margin: 25px 18px 18px 15px;
+  margin: 25px 30px 18px 15px;
 }
 
 .homepage {
@@ -59,12 +63,8 @@
   left: 35px;
 }
 
-.newPlaylist {
-  border: none;
-}
-
 .newPlaylistTitle {
-  font-size: 9vh;
+  font-size: 5vw;
   margin: 5px 5px 12px 5px;
 }
 
@@ -115,4 +115,83 @@ a:link {
 a:visited {
   text-decoration: none;
   color: white;
+}
+
+input {
+  font-size: 3vw;
+  max-width: 14vw;
+  background: none;
+  outline: 0;
+  border: 0;
+  border-bottom: 2px solid gray;
+  color: white;
+}
+
+.menu {
+  text-align: left;
+  font-size: 2.5vw;
+}
+
+.PLmenuTitle {
+  font-size: 4.5vw;
+}
+
+.SMname {
+  font-size: 4.5vw;
+  margin: 0 0 16px 0;
+}
+
+.profileName {
+  font-size: 4.5vw;
+}
+
+.proPLname {
+  font-size: 2.8vw;
+  text-align: left;
+  min-height: 60px;
+}
+
+.signout {
+  text-align: right;
+}
+
+.newPlaylistBtn {
+  border-radius: 6px;
+  background-color: blue;
+  color: white;
+  font-size: 2.8vw;
+  padding: 4px 6px;
+}
+
+.newPlaylist {
+  margin: 0 25px 0 0;
+}
+
+.playlistEdit {
+  margin: 18px 0 30px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  padding: 1% 10%;
+  background-color: #121212;
+  border-bottom: solid 5px #121212
+}
+
+.saveBtn {
+position: absolute;
+right: 7vw;
+font-size: 4.5vw;
+color: red;
+padding: 15px 0 0 0;
+}
+
+.editInput {
+  font-size: 9vw;
+  max-width: 80%;
+  color: white;
+}
+
+.editForm {
+  border: solid 10px 0a0a0a;
 }
