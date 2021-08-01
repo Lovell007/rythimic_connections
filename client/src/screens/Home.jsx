@@ -5,7 +5,6 @@ import headerImage from '../assets/images/Music.png';
 import Modal from '../components/Modal';
 import Login from './Login';
 import PlaylistCreate from './PlaylistCreate';
-import Register from './Register';
 
 export default function Home(props) {
   const { currentUser, userPlaylists, handleCreate } = props;
@@ -24,9 +23,6 @@ export default function Home(props) {
             <div className="createAccount" onClick={() => setModal(true)}>
               Create an Account
             </div>
-            {/* <Modal modal={modal} setModal={setModal}>
-              <Register />
-            </Modal> */}
           </Modal>
         </>
       ) : (
