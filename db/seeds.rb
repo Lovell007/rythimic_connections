@@ -6,18 +6,24 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-@admin = User.create!(username: 'Bob', password: '123456')
+Song.destroy_all
+Playlist.destroy_all
+User.destroy_all
+
+@admin = User.create!(username: 'Beast Mode', password: '123456')
 
 puts "#{User.count} user(s) created"
 
-# @smooth_jazz = Playlist.create!(name: 'Smooth Jazz', user: @admin)
+@smooth_jazz = Playlist.create!(name: 'Smooth Jazz', user: @admin)
 @fire_mix = Playlist.create!(name: 'Fire Mix', user: @admin)
 
 puts "#{Playlist.count} food(s) created"
 
-@fire_flames = Song.create!(name: 'Fire and Flames', image_url: "https://cdn.pixabay.com/photo/2017/05/29/19/13/fire-and-water-2354583_1280.jpg")
-@we_be_jazzin = Song.create!(name: 'We Be Jazzin', image_url: "https://cdn.pixabay.com/photo/2020/10/10/21/54/performers-5644247_1280.jpg")
+@fire_flames = Song.create!(name: 'Fire and Flames', image_url: "https://cdn.pixabay.com/photo/2017/05/29/19/13/fire-and-water-2354583_1280.jpg", audio_url: 'https://cdn.pixabay.com/audio/2021/07/26/audio_78dd3fc49e.mp3') 
+@we_be_jazzin = Song.create!(name: 'We Be Jazzin', image_url: "https://cdn.pixabay.com/photo/2020/10/10/21/54/performers-5644247_1280.jpg", audio_url: 'https://cdn.pixabay.com/audio/2021/02/24/audio_9ecdb4c6a3.mp3')
+@assassin = Song.create(name: 'Assassin', image_url: 'https://cdn.pixabay.com/photo/2017/03/30/18/20/girl-2189253_1280.jpg', audio_url: 'https://cdn.pixabay.com/audio/2021/05/18/audio_761dea348c.mp3')
 
 puts "#{Song.count} song(s) created"
 
-@fire_mix.songs.push(@fire_flames, @we_be_jazzin)
+@fire_mix.songs.push(@fire_flames, @assassin)
+@smooth_jazz.songs.push(@fire_flames, @we_be_jazzin)

@@ -1,6 +1,8 @@
 /* Kudos and credit to https://kovart.github.io/dashed-border-generator/ for their 'border' generator */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap');
 
 .App {
+  font-family: 'Playfair Display SC', serif;
   text-align: center;
   font-size: 2vw;
 }
@@ -21,7 +23,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: left;
-  padding: 1% 10%;
+  padding: 1% 1%;
   background-color: #0a0a0a;
   border-bottom: solid 5px #121212;
 }
@@ -42,7 +44,6 @@
 .playlistRow {
   display: flex;
   flex-direction: row;
-  /* background-color: #121212; */
 }
 
 .dots {
@@ -56,11 +57,29 @@
   margin: 25px 30px 18px 15px;
 }
 
+.login {
+  font-size: 4vw;
+  padding-bottom: 1vw;
+  margin-bottom: 1vw;
+}
+
+.loginUser {
+  /* padding: 2vw; */
+  margin-bottom: 1vw;
+}
+
+.createAccount {
+  font-size: 1.7vw;
+  margin-top: 1.4vw;
+  text-align: right;
+}
+
 .homepage {
+  font-size: 2.8vw;
   height: 4vw;
-  width: 4vw;
+  /* width: 4vw; */
   position: absolute;
-  left: 35px;
+  left: 25px;
 }
 
 .newPlaylistTitle {
@@ -118,13 +137,25 @@ a:visited {
 }
 
 input {
-  font-size: 3vw;
-  max-width: 14vw;
-  background: none;
+  font-size: 2.5vw;
+  max-width: 20vw;
+  /* background: none; */
+  background-color: #161616;
   outline: 0;
   border: 0;
   border-bottom: 2px solid gray;
-  color: white;
+  color: white inset !important;
+  font-family: 'Playfair Display SC', serif;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+ -webkit-box-shadow: 0 0 0 30px #161616 inset !important;
+ /* color: white inset !important; */
+ -webkit-text-fill-color: white;
+ font-family: 'Playfair Display SC', serif;
 }
 
 .menu {
@@ -143,23 +174,24 @@ input {
 
 .profileName {
   font-size: 4.5vw;
+  margin-bottom: 25px;
 }
 
 .proPLname {
   font-size: 2.8vw;
   text-align: left;
-  min-height: 60px;
+  min-height: 28px;
 }
 
 .signout {
   text-align: right;
 }
 
-.newPlaylistBtn {
+.Btn {
   border-radius: 6px;
   background-color: blue;
   color: white;
-  font-size: 2.8vw;
+  font-size: 2.2vw;
   padding: 4px 6px;
 }
 
@@ -184,6 +216,9 @@ right: 7vw;
 font-size: 4.5vw;
 color: red;
 padding: 15px 0 0 0;
+background-color: #121212;
+box-shadow: none;
+border: none;
 }
 
 .editInput {
@@ -194,4 +229,25 @@ padding: 15px 0 0 0;
 
 .editForm {
   border: solid 10px 0a0a0a;
+}
+
+.register {
+  border-radius: 6px;
+  background-color: blue;
+  color: white;
+  font-size: 2.2vw;
+  padding: 4px 6px;
+  margin: 20px 0 0 25vw;
+}
+
+.password {
+  margin-top: 10px;
+}
+
+.homeIcon {
+  height: 4.9vw;
+}
+
+.audioBtns {
+  margin: 0 15px;
 }
