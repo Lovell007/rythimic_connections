@@ -7,8 +7,12 @@ import Login from './Login';
 import PlaylistCreate from './PlaylistCreate';
 
 export default function Home(props) {
-  const { currentUser, userPlaylists, handleCreate } = props;
+  const { currentUser, userPlaylists, handleCreate, isLoaded, setIsLoaded } = props;
   const [modal, setModal] = useState(false);
+
+  const toggleLoaded = () => {
+    setIsLoaded(prevState => !prevState);
+  };
 
   return (
     <div>
@@ -37,7 +41,7 @@ export default function Home(props) {
             </Modal>
             {userPlaylists.map(playlist => (
               <div key={playlist.id}>
-                <Link to={`/playlists/${playlist.id}`}>
+                <Link to={`/playlists/${playlist.id}`} onClick={toggleLoaded}>
                   <div className="homePLimg">Place holder</div>
                   <p className="homeName">{playlist.name}</p>
                 </Link>

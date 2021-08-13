@@ -10,6 +10,7 @@ import { postPlaylist, putPlaylist, deletePlaylist, getAllPlaylists } from './se
 function App() {
   const [userPlaylists, setUserPlaylists] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false)
   const history = useHistory();
 
   useEffect(() => {
@@ -24,6 +25,7 @@ function App() {
   const fetchPlaylists = async () => {
     const playlistData = await getAllPlaylists();
     setUserPlaylists(playlistData);
+    console.log(userPlaylists);
   };
     if (currentUser) fetchPlaylists();
   }, [currentUser])
@@ -85,7 +87,9 @@ function App() {
               currentUser={currentUser}
               handleCreate={handleCreate}
               handleDelete={handleDelete}
-              handleUpdate={handleUpdate}/>
+              handleUpdate={handleUpdate}
+              isLoaded={isLoaded}
+              setIsLoaded={setIsLoaded}/>
           </Route>
         </Switch>
       </Layout>
