@@ -7,7 +7,16 @@ import { getAllSongs } from '../services/songs';
 export default function MainContainer(props) {
   const [SongList, setSongList] = useState([]);
   const history = useHistory();
-  const { currentUser, userPlaylists, handleDelete, handleCreate, handleUpdate } = props;
+  const {
+    currentUser,
+    userPlaylists,
+    handleDelete,
+    handleCreate,
+    handleUpdate,
+    isLoaded,
+    setIsLoaded,
+    audioPlaylist,
+  } = props;
 
   useEffect(() => {
     const fetchSongs = async () => {
@@ -20,13 +29,22 @@ export default function MainContainer(props) {
   return (
     <Switch>
       <Route path="/home">
-        <Home currentUser={currentUser} userPlaylists={userPlaylists} handleCreate={handleCreate} />
+        <Home
+          currentUser={currentUser}
+          userPlaylists={userPlaylists}
+          handleCreate={handleCreate}
+          isLoaded={isLoaded}
+          setIsLoaded={setIsLoaded}
+        />
       </Route>
       <Route path="/playlists/:id">
         <PlaylistDetails
           currentUser={currentUser}
           handleDelete={handleDelete}
           handleUpdate={handleUpdate}
+          isLoaded={isLoaded}
+          setIsLoaded={setIsLoaded}
+          audioPlaylist={audioPlaylist}
         />
       </Route>
     </Switch>

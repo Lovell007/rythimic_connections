@@ -5,6 +5,7 @@ export default function PlaylistEdit(props) {
     name: '',
   });
   const { handlePlaylistState, playlist } = props;
+  console.log(playlist.songs[0]);
 
   useEffect(() => {
     setFormData({ name: playlist.name });

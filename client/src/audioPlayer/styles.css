@@ -1,0 +1,74 @@
+
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="range"] {
+  /* position: absolute; */
+  bottom: 0;
+  height: 5px;
+  -webkit-appearance: none;
+  max-width: 100%;
+  width: 100%;
+  border-radius: 8px;
+  background: #1f0797;
+  transition: background 0.2s ease;
+  cursor: pointer;
+  overflow: hidden;
+  border-bottom: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+
+.audio-player {
+  margin-top: 3.4vw;
+  /* max-width: 350px; */
+  /* padding: 24px; */
+  border-radius: 20px;
+}
+
+.playerBtns {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  right: 25px;
+}
+
+.audio-controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 26%;
+  padding: 0 15px;
+  align-items: center;
+}
+
+.audio-controls .prev svg,
+.audio-controls .next svg {
+  width: 35px;
+  height: 35px;
+}
+
+.audio-controls .play svg,
+.audio-controls .pause svg {
+  height: 40px;
+  width: 40px;
+}
+
+.audio-controls path {
+  fill: var(--white);
+}
+
+.play, .pause, .prev, .next {
+  color: white;
+}
+
+.APsongImg {
+  height: 3vw;
+}
+
+

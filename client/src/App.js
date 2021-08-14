@@ -10,6 +10,8 @@ import { postPlaylist, putPlaylist, deletePlaylist, getAllPlaylists } from './se
 function App() {
   const [userPlaylists, setUserPlaylists] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false)
+  const [playlistSongs, setPlaylistSongs] = useState([])
   const history = useHistory();
 
   useEffect(() => {
@@ -24,6 +26,7 @@ function App() {
   const fetchPlaylists = async () => {
     const playlistData = await getAllPlaylists();
     setUserPlaylists(playlistData);
+    console.log(userPlaylists);
   };
     if (currentUser) fetchPlaylists();
   }, [currentUser])
@@ -68,6 +71,10 @@ function App() {
     removeToken();
     history.push('/home');
   };
+
+  const audioPlaylist = (playlist) => {
+    setPlaylistSongs(playlist)
+  }
   
   return (
     <div className="App">
@@ -75,7 +82,9 @@ function App() {
         currentUser={currentUser}
         handleLogin={handleLogin}
         handleLogout={handleLogout}
-        handleRegister={handleRegister}>
+        handleRegister={handleRegister}
+        playlistSongs={playlistSongs}
+      >
         <Switch>
           <Route path="/register">
             <Register handleRegister={handleRegister} />
@@ -85,7 +94,10 @@ function App() {
               currentUser={currentUser}
               handleCreate={handleCreate}
               handleDelete={handleDelete}
-              handleUpdate={handleUpdate}/>
+              handleUpdate={handleUpdate}
+              audioPlaylist={audioPlaylist}
+              isLoaded={isLoaded}
+              setIsLoaded={setIsLoaded}/>
           </Route>
         </Switch>
       </Layout>

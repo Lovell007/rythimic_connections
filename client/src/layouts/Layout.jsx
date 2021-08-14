@@ -4,10 +4,12 @@ import Modal from '../components/Modal';
 import Login from '../screens/Login';
 import Playlists from '../screens/Playlists';
 import homepage from '../assets/images/house-309113_640.png';
+import AudioPlayer from '../audioPlayer/AudioPlayer';
 
 export default function Layout(props) {
-  const { currentUser, handleLogin, userPlaylists, handleLogout } = props;
+  const { currentUser, handleLogin, userPlaylists, handleLogout, playlistSongs } = props;
   const [modal, setModal] = useState(false);
+  console.log(playlistSongs);
 
   return (
     <div>
@@ -45,6 +47,12 @@ export default function Layout(props) {
         )}
       </header>
       {props.children}
+      {playlistSongs.length < 1 ? (
+        <div>Pick a song</div>
+      ) : (
+        <AudioPlayer playlistSongs={playlistSongs} />
+        // <div>We gettin there {playlistSongs.name}</div>
+      )}
     </div>
   );
 }
