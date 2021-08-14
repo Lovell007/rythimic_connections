@@ -9,13 +9,12 @@ import SongMenu from './SongMenu';
 import PlaylistEdit from './PlaylistEdit';
 import { AiFillPlayCircle } from 'react-icons/ai';
 import { AiFillPauseCircle } from 'react-icons/ai';
-import AudioPlayer from '../audioPlayer/AudioPlayer';
 
 export default function PlaylistDetails(props) {
   const [isEdit, setIsEdit] = useState(false);
   const [modal, setModal] = useState(false);
   const [modal2, setModal2] = useState(false);
-  const { currentUser, handleDelete, handleUpdate, isLoaded, setIsLoaded } = props;
+  const { currentUser, handleDelete, handleUpdate, isLoaded, setIsLoaded, audioPlaylist } = props;
   const [playlist, setPlaylist] = useState(null);
   const { id } = useParams();
 
@@ -63,6 +62,7 @@ export default function PlaylistDetails(props) {
           playlist={playlist}
           currentUser={currentUser}
           handleDelete={handleDelete}
+          audioPlaylist={audioPlaylist}
         />
       </Modal>
       {playlist?.songs.map(song => {
@@ -90,7 +90,7 @@ export default function PlaylistDetails(props) {
       <Modal modal={modal2} setModal={setModal2}>
         <SongMenu song={modal2} />
       </Modal>
-      {playlist && <AudioPlayer playlist={playlist} />}
+      {/* {playlist && <AudioPlayer playlist={playlist} />} */}
     </div>
   );
 }

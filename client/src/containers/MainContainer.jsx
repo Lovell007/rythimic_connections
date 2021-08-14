@@ -15,6 +15,7 @@ export default function MainContainer(props) {
     handleUpdate,
     isLoaded,
     setIsLoaded,
+    audioPlaylist,
   } = props;
 
   useEffect(() => {
@@ -43,6 +44,7 @@ export default function MainContainer(props) {
           handleUpdate={handleUpdate}
           isLoaded={isLoaded}
           setIsLoaded={setIsLoaded}
+          audioPlaylist={audioPlaylist}
         />
       </Route>
     </Switch>

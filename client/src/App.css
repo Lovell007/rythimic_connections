@@ -36,6 +36,14 @@
   padding: 0 0 0 0;
 }
 
+.APsongName {
+  display: flex;
+  font-size: 4vw;
+  margin: 3px 0 3px 20px;
+  justify-content: left;
+  padding: 0 0 0 0;
+}
+
 .rowSongImg {
   height: 7vw;
   width: 7vw;

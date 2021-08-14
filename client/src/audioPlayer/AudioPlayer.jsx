@@ -7,27 +7,21 @@ import './styles.css';
  * https://letsbuildui.dev/articles/building-an-audio-player-with-react-hooks
  */
 const AudioPlayer = props => {
-  // State
   const [trackIndex, setTrackIndex] = useState(0);
   const [trackProgress, setTrackProgress] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  const { playlist } = props;
-
-  // Destructure for conciseness
-  const { audio_url } = playlist.songs[trackIndex];
-
-  // Refs
+  const { playlistSongs } = props;
+  const { audio_url, name, image_url } = playlistSongs.songs[trackIndex];
   const audioRef = useRef(new Audio(audio_url));
   const intervalRef = useRef();
   const isReady = useRef(false);
+  console.log(playlistSongs.songs[trackIndex]);
 
-  // Destructure for conciseness
   const { duration } = audioRef.current;
 
   const currentPercentage = duration ? `${(trackProgress / duration) * 100}%` : '0%';
 
   const startTimer = () => {
-    // Clear any timers already running
     clearInterval(intervalRef.current);
 
     intervalRef.current = setInterval(() => {
@@ -40,14 +34,12 @@ const AudioPlayer = props => {
   };
 
   const onScrub = value => {
-    // Clear any timers already running
     clearInterval(intervalRef.current);
     audioRef.current.currentTime = value;
     setTrackProgress(audioRef.current.currentTime);
   };
 
   const onScrubEnd = () => {
-    // If not already playing, start
     if (!isPlaying) {
       setIsPlaying(true);
     }
@@ -56,14 +48,14 @@ const AudioPlayer = props => {
 
   const toPrevTrack = () => {
     if (trackIndex - 1 < 0) {
-      setTrackIndex(playlist.songs.length - 1);
+      setTrackIndex(playlistSongs.songs.length - 1);
     } else {
       setTrackIndex(trackIndex - 1);
     }
   };
 
   const toNextTrack = () => {
-    if (trackIndex < playlist.songs.length - 1) {
+    if (trackIndex < playlistSongs.songs.length - 1) {
       setTrackIndex(trackIndex + 1);
     } else {
       setTrackIndex(0);
@@ -79,7 +71,6 @@ const AudioPlayer = props => {
     }
   }, [isPlaying]);
 
-  // Handles cleanup and setup when changing tracks
   useEffect(() => {
     audioRef.current.pause();
 
@@ -91,13 +82,11 @@ const AudioPlayer = props => {
       setIsPlaying(true);
       startTimer();
     } else {
-      // Set the isReady ref as true for the next pass
       isReady.current = true;
     }
   }, [trackIndex]);
 
   useEffect(() => {
-    // Pause and clean up on unmount
     return () => {
       audioRef.current.pause();
       clearInterval(intervalRef.current);
@@ -107,12 +96,18 @@ const AudioPlayer = props => {
   return (
     <div className="audio-player">
       <div className="track-info">
-        <AudioControls
-          isPlaying={isPlaying}
-          onPrevClick={toPrevTrack}
-          onNextClick={toNextTrack}
-          onPlayPauseClick={setIsPlaying}
-        />
+        <div className="songRows">
+          <img className="APsongImg" src={image_url} />
+          <div className="APsongName">{name}</div>
+          <div className="playerBtns">
+            <AudioControls
+              isPlaying={isPlaying}
+              onPrevClick={toPrevTrack}
+              onNextClick={toNextTrack}
+              onPlayPauseClick={setIsPlaying}
+            />
+          </div>
+        </div>
         <input
           type="range"
           value={trackProgress}
